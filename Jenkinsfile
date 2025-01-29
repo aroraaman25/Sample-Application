@@ -2,8 +2,8 @@ pipeline {
     agent any
         environment {
             // Define environment variables for AWS credentials
-            AWS_ACCESS_KEY_ID = credentials('aws-access-key-id') // Fetch from Jenkins credentials
-            AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key') // Fetch from Jenkins credentials
+            AWS_ACCESS_KEY_ID = credentials('aws_access_key_id') // Fetch from Jenkins credentials
+            AWS_SECRET_ACCESS_KEY = credentials('aws_secret_access_key') // Fetch from Jenkins credentials
             AWS_DEFAULT_REGION = 'ap-south-1' //
         }
 
@@ -19,8 +19,8 @@ pipeline {
                 steps {
                     // Validate AWS Secrets stored in Jenkins Credentials
                     sh '''
-                    export aws-access-key-id=$aws-access-key-id
-                    export aws-secret-access-key=$aws-secret-access-key
+                    export aws_access_key_id=$aws-access-key-id
+                    export aws_secret_access_key=$aws-secret-access-key
                     '''
                 }
             }
