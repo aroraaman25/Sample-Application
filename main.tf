@@ -43,7 +43,7 @@ resource "aws_db_instance" "mysql_db" {
     engine = "mysql"
     instance_class = "db.t2.micro"
     username = "admin"
-    password = "mypassword2025"
+    password = var.db_password
     publicly_accessible = false
     vpc_security_group_ids = [aws_security_group.ec2_sg.id]
 }
