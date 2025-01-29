@@ -2,7 +2,7 @@ pipeline {
     agent any
         environment {
             // Define environment variables for AWS credentials
-            AWS_ACCESS_KEY_ID = crrdentials('aws-access-key-id') // Fetch from Jenkins credentials
+            AWS_ACCESS_KEY_ID = credentials('aws-access-key-id') // Fetch from Jenkins credentials
             AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key') // Fetch from Jenkins credentials
             AWS_DEFAULT_REGION = 'ap-south-1' //
         }
