@@ -14,6 +14,16 @@ pipeline {
                     git "https://github.com/aroraaman25/Sample-Application.git"
                 }
             }
+
+            stage('Credential Validation') {
+                steps {
+                    // Validate AWS Secrets stored in Jenkins Credentials
+                    sh '''
+                    export aws-access-key-id=$aws-access-key-id
+                    export aws-secret-access-key=$aws-secret-access-key
+                    '''
+                }
+            }
             
             stage('Terraform init') {
                 steps {
